@@ -44,7 +44,9 @@ export class TasksController {
 			}
 			// si los datos son validos
 			const { title, expiration_date } = result.data
+			// si la fecha de expiración no es nula, formatearla
 			const expiration_date_formatted = expiration_date ?? null
+			// crear la tarea
 			await this.model.createTask(title, expiration_date_formatted)
 			// enviar respuesta
 			response = {
