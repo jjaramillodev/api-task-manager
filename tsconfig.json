@@ -2,6 +2,14 @@
   "compilerOptions": {
     "target": "es2016",
     "module": "commonjs",
+    "baseUrl": "./",
+    "paths": {
+      "@core/*": ["src/core/*"],
+      "@routes/*": ["src/routes/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@models/*": ["src/models/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+    },
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
