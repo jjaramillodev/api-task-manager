@@ -10,39 +10,37 @@
 
 ## Ejecutar proyecto:
 
-```markdown
   1. Clonar el repositorio:
-    ```sh
-    git clone https://github.com/jjaramillodev/api-task-manager.git
-    ```
+  ```markdown
+  git clone https://github.com/jjaramillodev/api-task-manager.git
+  ```
 
   2. Navegar al directorio del proyecto:
-    ```sh
-    cd api-task-manager
-    ```
+  ```markdown
+  cd api-task-manager
+  ```
 
   3. Instalar las dependencias:
-    ```sh
-    npm install
-    ```
+  ```markdown
+  npm install
+  ```
 
   4. Configurar las variables de entorno:
     Crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
-    ```
-    PORT=port
-    DB_NAME=name_db
-    DB_USER=usuario
-    DB_PASS=contraseña
-    ```
+  ```markdown
+  PORT=port
+  DB_NAME=name_db
+  DB_USER=usuario
+  DB_PASS=contraseña
+  ```
 
   5. Iniciar el servidor:
-    ```sh
-    npm run dev
-    ```
+  ```markdown
+  npm run dev
+  ```
 
   7. Acceder a la API:
-    Abrir el navegador o herramienta de cliente HTTP y navegar a `http://localhost:[port]`
-```
+  Abrir el navegador o herramienta de cliente HTTP y navegar a `http://localhost:[port]`
 
 ## Modelo de Datos
 
