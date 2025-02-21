@@ -13,7 +13,11 @@ export class TasksController {
 	getTasks = async (_req: Request, res: Response): Promise<void> => {
 		let response: TaskResponseI
 		try {
+			// verificar si hay tareas atrasadas
+			await this.model.markTasksLate()
+			// obtener las tareas
 			const tasks = await this.model.getTasks()
+			// enviar respuesta
 			response = {
 				message: 'Lista de tareas obtenida',
 				tasks

@@ -6,6 +6,7 @@ export const createStates = async (): Promise<void> => {
 	await State.bulkCreate([
 		{ title: 'pending', description: 'Tarea pendiente' },
 		{ title: 'progress', description: 'Tarea en progreso' },
-		{ title: 'complete', description: 'Tarea completada' }
+		{ title: 'complete', description: 'Tarea completada' },
+		{ title: 'late', description: 'Tarea atrasada' }
 	])
 }
