@@ -8,3 +8,4 @@ const tasksController = new TasksController({ model: new TasksModel() })
 
 tasksRouter.get('/', tasksController.getTasks)
 tasksRouter.post('/', tasksController.createTask)
+tasksRouter.put('/:id/next-state', tasksController.updateNextTaskState)

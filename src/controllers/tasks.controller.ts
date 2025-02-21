@@ -60,4 +60,31 @@ export class TasksController {
 			res.status(500).json(response)
 		}
 	}
+
+	updateNextTaskState = async (req: Request, res: Response): Promise<void> => {
+		let response: TaskResponseI
+		try {
+			// validar el id de la tarea
+			const id = Number(req.params.id)
+			if (isNaN(id)) {
+				response = {
+					message: 'El id de la tarea debe ser un número entero'
+				}
+				res.status(400).json(response)
+				return
+			}
+			// actualizar el estado de la tarea
+			await this.model.updateNextTaskState(id)
+			// enviar respuesta
+			response = {
+				message: 'Estado de la tarea actualizado'
+			}
+			res.status(200).json(response)
+		} catch {
+			response = {
+				message: 'Error al actualizar el estado de la tarea'
+			}
+			res.status(500).json(response)
+		}
+	}
 }
