@@ -26,7 +26,8 @@ State.init(
 	},
 	{
 		sequelize,
-		tableName: 'states'
+		tableName: 'states',
+		timestamps: false
 	}
 )
 
@@ -37,5 +38,6 @@ State.hasMany(Task, {
 
 Task.belongsTo(State, {
 	foreignKey: 'state_id',
-	targetKey: 'id'
+	targetKey: 'id',
+	as: 'state'
 })

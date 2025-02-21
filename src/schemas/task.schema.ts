@@ -23,11 +23,13 @@ Task.init(
 			type: DataTypes.DATE
 		},
 		state_id: {
-			type: DataTypes.INTEGER
+			type: DataTypes.INTEGER,
+			primaryKey: true
 		}
 	},
 	{
 		sequelize,
-		tableName: 'tasks'
+		tableName: 'tasks',
+		timestamps: false
 	}
 )
