@@ -6,7 +6,7 @@ import { createStates } from './utils/create-states.util'
 async function main(): Promise<void> {
 	try {
 		// iniciar la conexión con la base de datos
-		await sequelize.sync({ force: false })
+		await sequelize.sync()
 		// crear los estados si no existen
 		await createStates()
 		// iniciar el servidor de express

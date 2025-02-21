@@ -1,7 +1,7 @@
 export interface TaskWithStateI {
 	id: number
 	title: string
-	expiration_date: Date
+	expiration_date: Date | null
 	state: {
 		title: string
 		description: string

@@ -7,3 +7,4 @@ export const tasksRouter = Router()
 const tasksController = new TasksController({ model: new TasksModel() })
 
 tasksRouter.get('/', tasksController.getTasks)
+tasksRouter.post('/', tasksController.createTask)

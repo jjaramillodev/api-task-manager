@@ -14,4 +14,15 @@ export class TasksModel {
 		})
 		return tasks as unknown as TaskWithStateI[]
 	}
+
+	createTask = async (
+		title: string,
+		expiration_date: Date | null
+	): Promise<void> => {
+		await Task.create({
+			title,
+			expiration_date,
+			state_id: 1
+		})
+	}
 }
