@@ -1,3 +1,4 @@
+import { TaskResponseI } from '@interfaces/task-response.interface'
 import { TasksModel } from '@models/tasks.model'
 import { Request, Response } from 'express'
 
@@ -8,12 +9,19 @@ export class TasksController {
 		this.model = model
 	}
 
-	getTasks = async (req: Request, res: Response) => {
+	getTasks = async (_req: Request, res: Response): Promise<void> => {
 		try {
 			const tasks = await this.model.getTasks()
-			res.json(tasks)
+			const response: TaskResponseI = {
+				message: 'Lista de tareas obtenida',
+				tasks
+			}
+			res.status(200).json(response)
 		} catch {
-			res.status(500).json({ error: 'Error al obtener la lista de tareas' })
+			const response: TaskResponseI = {
+				message: 'Error al obtener la lista de tareas'
+			}
+			res.status(500).json(response)
 		}
 	}
 }
