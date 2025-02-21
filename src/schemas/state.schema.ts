@@ -1,6 +1,6 @@
 import { sequelize } from '@core/sequelize'
 import { DataTypes, Model } from 'sequelize'
-import { Task } from './Task'
+import { Task } from './task.schema'
 
 export class State extends Model {
 	public id!: number
