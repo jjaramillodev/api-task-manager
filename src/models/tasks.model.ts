@@ -2,6 +2,7 @@ import { TaskI } from '@interfaces/task-response.interface'
 import { Op } from 'sequelize'
 import { State } from 'src/schemas/state.schema'
 import { Task } from 'src/schemas/task.schema'
+import { transformStringToDate } from 'src/utils/string-to-date.util'
 
 export class TasksModel {
 	getTasks = async (): Promise<TaskI[]> => {
@@ -11,18 +12,20 @@ export class TasksModel {
 				model: State,
 				attributes: ['title', 'description'],
 				as: 'state'
-			}
+			},
+			order: [['id', 'ASC']]
 		})
 		return tasks as unknown as TaskI[]
 	}
 
 	createTask = async (
 		title: string,
-		expiration_date: Date | null
+		expiration_date: string | null | undefined
 	): Promise<TaskI> => {
+		const formatted_date = transformStringToDate(expiration_date)
 		return await Task.create({
 			title,
-			expiration_date,
+			expiration_date: formatted_date,
 			state_id: 1
 		})
 	}
