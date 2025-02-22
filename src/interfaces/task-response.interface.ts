@@ -1,8 +1,9 @@
-export interface TaskWithStateI {
+export interface TaskI {
 	id: number
 	title: string
 	expiration_date: Date | null
-	state: {
+	state_id: number
+	state?: {
 		title: string
 		description: string
 	}
@@ -10,6 +11,6 @@ export interface TaskWithStateI {
 
 export interface TaskResponseI {
 	message: string
-	task?: TaskWithStateI
-	tasks?: TaskWithStateI[]
+	task?: TaskI
+	tasks?: TaskI[]
 }

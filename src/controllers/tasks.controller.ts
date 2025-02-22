@@ -51,10 +51,11 @@ export class TasksController {
 			// si la fecha de expiración no es nula, formatearla
 			const expiration_date_formatted = expiration_date ?? null
 			// crear la tarea
-			await this.model.createTask(title, expiration_date_formatted)
+			const task = await this.model.createTask(title, expiration_date_formatted)
 			// enviar respuesta
 			response = {
-				message: 'Tarea creada satisfactoriamente'
+				message: 'Tarea creada satisfactoriamente',
+				task
 			}
 			res.status(201).json(response)
 		} catch {
@@ -78,10 +79,11 @@ export class TasksController {
 				return
 			}
 			// actualizar el estado de la tarea
-			await this.model.updateNextTaskState(id)
+			const task = await this.model.updateNextTaskState(id)
 			// enviar respuesta
 			response = {
-				message: 'Estado de la tarea actualizado'
+				message: 'Estado de la tarea actualizado',
+				task
 			}
 			res.status(200).json(response)
 		} catch {

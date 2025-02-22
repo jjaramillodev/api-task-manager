@@ -1,33 +1,33 @@
-import { TaskWithStateI } from '@interfaces/task-response.interface'
+import { TaskI } from '@interfaces/task-response.interface'
 import { Op } from 'sequelize'
 import { State } from 'src/schemas/state.schema'
 import { Task } from 'src/schemas/task.schema'
 
 export class TasksModel {
-	getTasks = async (): Promise<TaskWithStateI[]> => {
+	getTasks = async (): Promise<TaskI[]> => {
 		const tasks = await Task.findAll({
-			attributes: ['id', 'title', 'expiration_date'],
+			attributes: ['id', 'title', 'expiration_date', 'state_id'],
 			include: {
 				model: State,
 				attributes: ['title', 'description'],
 				as: 'state'
 			}
 		})
-		return tasks as unknown as TaskWithStateI[]
+		return tasks as unknown as TaskI[]
 	}
 
 	createTask = async (
 		title: string,
 		expiration_date: Date | null
-	): Promise<void> => {
-		await Task.create({
+	): Promise<TaskI> => {
+		return await Task.create({
 			title,
 			expiration_date,
 			state_id: 1
 		})
 	}
 
-	updateNextTaskState = async (id: number): Promise<void> => {
+	updateNextTaskState = async (id: number): Promise<TaskI> => {
 		// Buscar la tarea por id
 		const task = await Task.findByPk(id)
 		// Si no existe la tarea, lanzar un error
@@ -40,7 +40,7 @@ export class TasksModel {
 		}
 		// Actualizar el estado de la tarea
 		const next_state_id = task.state_id + 1
-		await task.update({ state_id: next_state_id })
+		return await task.update({ state_id: next_state_id })
 	}
 
 	markTasksLate = async (): Promise<void> => {
