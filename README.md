@@ -85,5 +85,6 @@
   - Jest -> Supertest
 
 ## TODO
+  - Configurar Cors.
   - Mejorar la sintaxis de los mensajes emitidos.
   - Aterrizar los mensajes de error del modelo en el controlador.
