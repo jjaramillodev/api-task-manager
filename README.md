@@ -28,6 +28,7 @@
   4. Configurar las variables de entorno:
     Crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
   ```markdown
+  DB_HOST=host
   DB_NAME=name_db
   DB_USER=usuario
   DB_PASS=contraseña
