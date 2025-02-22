@@ -1,7 +1,7 @@
 import { PORT } from '@core/config'
 import { express } from '@core/express'
 import { sequelize } from '@core/sequelize'
-import { createStates } from './utils/create-states.util'
+import { createStates } from '@utils/create-states.util'
 
 async function main(): Promise<void> {
 	try {

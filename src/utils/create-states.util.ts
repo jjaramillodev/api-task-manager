@@ -1,4 +1,4 @@
-import { State } from 'src/schemas/state.schema'
+import { State } from '@schemas/state.schema'
 
 export const createStates = async (): Promise<void> => {
 	const states = await State.findAll()

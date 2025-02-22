@@ -1,7 +1,7 @@
 import { TaskResponseI } from '@interfaces/task-response.interface'
 import { TasksModel } from '@models/tasks.model'
+import { taskValidator } from '@validators/task.validator'
 import { Request, Response } from 'express'
-import { taskZod } from 'src/zod/task.zod'
 
 export class TasksController {
 	private readonly model: TasksModel
@@ -35,7 +35,7 @@ export class TasksController {
 		let response: TaskResponseI
 		try {
 			// validar el body de la petición
-			const result = taskZod.safeParse(req.body)
+			const result = taskValidator.safeParse(req.body)
 			// si hay errores en la validación
 			if (!result.success) {
 				response = {

@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const taskZod = z.object({
+export const taskValidator = z.object({
 	title: z
 		.string()
 		.max(255, 'El título no puede superar los 255 caracteres')

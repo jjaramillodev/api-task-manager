@@ -1,6 +1,6 @@
+import { Task } from '@/schemas/task.schema'
+import { transformStringToDate } from '@/utils/string-to-date.util'
 import { express } from '@core/express'
-import { Task } from 'src/schemas/task.schema'
-import { transformStringToDate } from 'src/utils/string-to-date.util'
 import request from 'supertest'
 
 const api = request(express)

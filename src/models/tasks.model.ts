@@ -1,8 +1,8 @@
 import { TaskI } from '@interfaces/task-response.interface'
+import { State } from '@schemas/state.schema'
+import { Task } from '@schemas/task.schema'
+import { transformStringToDate } from '@utils/string-to-date.util'
 import { Op } from 'sequelize'
-import { State } from 'src/schemas/state.schema'
-import { Task } from 'src/schemas/task.schema'
-import { transformStringToDate } from 'src/utils/string-to-date.util'
 
 export class TasksModel {
 	getTasks = async (): Promise<TaskI[]> => {
