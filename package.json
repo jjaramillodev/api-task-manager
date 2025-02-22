@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=development && ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/app.ts",
+    "dev": "set NODE_ENV=development && ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --project tsconfig.dev.json src/app.ts",
+    "build": "tsc --project tsconfig.prod.json",
     "test": "set NODE_ENV=test && npx jest --detectOpenHandles --forceExit --verbose --silent",
     "lint": "eslint"
   },
