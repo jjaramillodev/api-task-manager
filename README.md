@@ -42,6 +42,20 @@
   7. Acceder a la API:
   Abrir el navegador o herramienta de cliente HTTP y navegar a `http://localhost:[port]`
 
+## Construir Aplicación
+
+  1. Iniciar el comando de build:
+  ```markdown
+  npm run build
+  ```
+
+## Ejecutar Test
+
+  1. Iniciar el comando de pruebas:
+  ```markdown
+  npm run test
+  ```
+
 ## Modelo de Datos
 
   - *Estados:*
@@ -68,6 +82,7 @@
   - Express -> Cors
   - Sequelize -> PostgreSQL
   - Zod
+  - Jest -> Supertest
 
 ## TODO
   - Mejorar la sintaxis de los mensajes emitidos.
