@@ -49,6 +49,11 @@
   npm run build
   ```
 
+  2. Iniciar el servidor
+  ```markdown
+  npm run start
+  ```
+
 ## Ejecutar Test
 
   1. Iniciar el comando de pruebas:
